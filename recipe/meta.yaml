@@ -1,13 +1,16 @@
 {% set name = "networkit" %}
-{% set version = "5.0" %}
+{% set version = "5.0.1" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "f59c48a7e7895c21635f8134205bcaba08ec3624207c8047ae07ca855f431b39" %}
 
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  url: 'https://files.pythonhosted.org/packages/d4/36/39298b5c1ddccd062505e7e2f9dcb14235ddd158008bda62cdbb907de8e3/networkit-5.0.tar.gz'
-  sha256: '4fd9439a155cc569000ec039e13680804d8cc233c6d602c88cf0f63174b2babd'
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{file_ext}}
+    {{hash_type}}: {{hash_value}}
   
 build:
   skip: True  # [py27 or py33 or win or win_64]
