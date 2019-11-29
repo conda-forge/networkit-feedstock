@@ -1,8 +1,8 @@
 {% set name = "networkit" %}
-{% set version = "5.0.1" %}
+{% set version = "6.0" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "f59c48a7e7895c21635f8134205bcaba08ec3624207c8047ae07ca855f431b39" %}
+{% set hash_value = "c9dd49c567ad2ac2969a4cdf7be098d4effa55f28ed799ce1bf981e46b83d631" %}
 
 package:
   name: '{{ name|lower }}'
