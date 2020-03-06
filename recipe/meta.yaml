@@ -11,9 +11,9 @@ source:
   
 build:
   skip: True  # [py27 or py33 or win or win_64]
-  number: 0
+  number: 1
   script:
-    - '{{PYTHON}} -m pip install --ignore-installed -vv .'
+     - '{{PYTHON}} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --ignore-installed -vv .'
 
 requirements:
   build:
@@ -22,19 +22,23 @@ requirements:
     - cmake >=3.5
     - cython >=0.21
     - ninja >=1.9.0
+    - libnetworkit
+
   host:
     - numpy
-    - openmp
     - pip
     - python
     - scipy
     - setuptools
     - wheel >=0.28
+    - libnetworkit
+
   run:
     - numpy
     - python
     - scipy
-    
+    - libnetworkit
+
 test:
   imports:
     - networkit
