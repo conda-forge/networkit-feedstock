@@ -11,7 +11,7 @@ source:
   
 build:
   skip: True  # [py27 or py33 or win or win_64 or python_impl == 'pypy']
-  number: 3
+  number: 4
   script:
      - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --ignore-installed -vv .'
 
@@ -37,7 +37,7 @@ requirements:
     - numpy
     - python
     - scipy
-    - libnetworkit
+    - libnetworkit =6.1
 
 test:
   imports:
