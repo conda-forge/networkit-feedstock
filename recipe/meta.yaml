@@ -7,13 +7,13 @@ package:
 
 source:
   - git_url: 'https://github.com/networkit/networkit.git'
-    git_tag: '{{version}}'
+    git_tag: '{{ version }}'
   
 build:
   skip: True  # [py27 or py33 or win or win_64 or python_impl == 'pypy']
-  number: 2
+  number: 3
   script:
-     - '{{PYTHON}} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --ignore-installed -vv .'
+     - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --ignore-installed -vv .'
 
 requirements:
   build:
@@ -22,7 +22,7 @@ requirements:
     - cmake >=3.5
     - cython >=0.21
     - ninja >=1.9.0
-    - libnetworkit
+    - libnetworkit =6.1
 
   host:
     - numpy
@@ -31,7 +31,7 @@ requirements:
     - scipy
     - setuptools
     - wheel >=0.28
-    - libnetworkit
+    - libnetworkit =6.1
 
   run:
     - numpy
