@@ -1,5 +1,5 @@
 {% set name = "networkit" %}
-{% set version = "7.0" %}
+{% set version = "7.1" %}
 
 package:
   name: '{{ name|lower }}'
@@ -20,7 +20,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake >=3.5
-    - cython >=0.21
+    - cython >=0.29
     - ninja >=1.9.0
     - libnetworkit ={{ version }}
 
@@ -30,6 +30,7 @@ requirements:
     - python
     - scipy
     - setuptools
+    - setuptools-cythonize
     - wheel >=0.28
     - libnetworkit ={{ version }}
 
