@@ -5,9 +5,13 @@ Home: https://github.com/networkit/networkit
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/networkit-feedstock/blob/master/LICENSE.txt)
 
 Summary: NetworKit is a growing open-source toolkit for large-scale network analysis.
+
+Development: https://github.com/networkit/networkit
+
+Documentation: https://networkit.github.io/
 
 NetworKit is a growing open-source toolkit for large-scale network analysis. Its aim is to provide tools for the analysis of large networks in the size range from thousands to billions of edges. For this purpose, it implements efficient graph algorithms, many of them parallel to utilize multicore architectures. These are meant to compute standard measures of network analysis, such as degree sequences, clustering coefficients, and centrality measures. In this respect, NetworKit is comparable to packages such as NetworkX, albeit with a focus on parallelism and scalability. NetworKit is also a testbed for algorithm engineering and contains novel algorithms from recently published research (see list of Publications).
 
@@ -30,63 +34,65 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_numpy1.14python3.6.____cpythonpython_implcpython</td>
+              <td>linux_64_numpy1.16python3.6.____cpythonpython_implcpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6908&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=linux&configuration=linux_numpy1.14python3.6.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=linux&configuration=linux_64_numpy1.16python3.6.____cpythonpython_implcpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_numpy1.14python3.7.____cpythonpython_implcpython</td>
+              <td>linux_64_numpy1.16python3.7.____cpythonpython_implcpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6908&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=linux&configuration=linux_numpy1.14python3.7.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=linux&configuration=linux_64_numpy1.16python3.7.____cpythonpython_implcpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_numpy1.14python3.8.____cpythonpython_implcpython</td>
+              <td>linux_64_numpy1.16python3.8.____cpythonpython_implcpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6908&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=linux&configuration=linux_numpy1.14python3.8.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=linux&configuration=linux_64_numpy1.16python3.8.____cpythonpython_implcpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_numpy1.14python3.6.____cpythonpython_implcpython</td>
+              <td>linux_64_numpy1.19python3.9.____cpythonpython_implcpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6908&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=osx&configuration=osx_numpy1.14python3.6.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=linux&configuration=linux_64_numpy1.19python3.9.____cpythonpython_implcpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_numpy1.14python3.7.____cpythonpython_implcpython</td>
+              <td>osx_64_numpy1.16python3.6.____cpythonpython_implcpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6908&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=osx&configuration=osx_numpy1.14python3.7.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=osx&configuration=osx_64_numpy1.16python3.6.____cpythonpython_implcpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_numpy1.14python3.8.____cpythonpython_implcpython</td>
+              <td>osx_64_numpy1.16python3.7.____cpythonpython_implcpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6908&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=osx&configuration=osx_numpy1.14python3.8.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=osx&configuration=osx_64_numpy1.16python3.7.____cpythonpython_implcpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_numpy1.16python3.8.____cpythonpython_implcpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6908&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=osx&configuration=osx_64_numpy1.16python3.8.____cpythonpython_implcpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_numpy1.19python3.9.____cpythonpython_implcpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6908&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/networkit-feedstock?branchName=master&jobName=osx&configuration=osx_64_numpy1.19python3.9.____cpythonpython_implcpython" alt="variant">
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
       </details>
-    </td>
-  </tr>
-  <tr>
-    <td>Windows</td>
-    <td>
-      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
-    </td>
-  </tr>
-  <tr>
-    <td>Linux_ppc64le</td>
-    <td>
-      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
     </td>
   </tr>
 </table>
