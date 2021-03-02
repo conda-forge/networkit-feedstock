@@ -1,19 +1,21 @@
 {% set name = "networkit" %}
-{% set version = "8.0" %}
+{% set version = "8.1" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "0a22eb839606b9fabfa68c7add12c4de5eee735c6f8bb34420e5916ce5d7f829" %}
 
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  - git_url: 'https://github.com/networkit/networkit.git'
-    git_tag: '{{ version }}'
+  - url: 'https://github.com/networkit/networkit/archive/{{ version }}.tar.gz'
+    {{ hash_type }}: {{ hash_value }}
   
 build:
   skip: True  # [py27 or py33 or win or win_64 or python_impl == 'pypy']
-  number: 1
+  number: 0
   script:
-     - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --ignore-installed -vv .'
+    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'
 
 requirements:
   build:
@@ -22,8 +24,9 @@ requirements:
     - cmake >=3.5
     - cython >=0.29
     - ninja >=1.9.0
+    - libtlx
     - libnetworkit ={{ version }}
-
+  
   host:
     - numpy
     - pip
