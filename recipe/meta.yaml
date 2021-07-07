@@ -1,7 +1,7 @@
 {% set name = "networkit" %}
-{% set version = "8.1" %}
+{% set version = "9.0" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "0a22eb839606b9fabfa68c7add12c4de5eee735c6f8bb34420e5916ce5d7f829" %}
+{% set hash_value = "c574473bc7d86934f0f4b3049c0eeb9c4444cfa873e5fecda194ee5b1930f82c" %}
 
 package:
   name: '{{ name|lower }}'
@@ -10,12 +10,15 @@ package:
 source:
   - url: 'https://github.com/networkit/networkit/archive/{{ version }}.tar.gz'
     {{ hash_type }}: {{ hash_value }}
+    patches:
+    - 0001-Add-find-library-tlx.patch  # [win]
   
 build:
-  skip: True  # [py27 or py33 or win or win_64 or python_impl == 'pypy']
+  skip: True  # [py27 or py33  or python_impl == 'pypy']
   number: 0
   script:
-    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'
+    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'  # [not win]
+    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'  # [win]
 
 requirements:
   build:
@@ -25,7 +28,7 @@ requirements:
     - cython >=0.29
     - ninja >=1.9.0
     - libtlx
-    - libnetworkit ={{ version }}
+    - libnetworkit ={{ version }}  # [not win]
   
   host:
     - numpy
@@ -35,13 +38,13 @@ requirements:
     - setuptools
     - setuptools-cythonize
     - wheel >=0.28
-    - libnetworkit ={{ version }}
+    - libnetworkit ={{ version }}  # [not win]
 
   run:
     - numpy
     - python
     - scipy
-    - libnetworkit ={{ version }}
+    - libnetworkit ={{ version }}  # [not win]
 
 test:
   imports:
