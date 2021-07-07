@@ -10,15 +10,13 @@ package:
 source:
   - url: 'https://github.com/networkit/networkit/archive/{{ version }}.tar.gz'
     {{ hash_type }}: {{ hash_value }}
-    patches:
-    - 0001-Add-find-library-tlx.patch  # [win]
   
 build:
   skip: True  # [py27 or py33  or python_impl == 'pypy']
   number: 0
   script:
     - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'  # [not win]
-    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'  # [win]
+    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--external-tlx={{ BUILD_PREFIX }}\Library" --ignore-installed -vv .'  # [win]
 
 requirements:
   build:
@@ -29,6 +27,7 @@ requirements:
     - ninja >=1.9.0
     - libtlx
     - libnetworkit ={{ version }}  # [not win]
+    - python
   
   host:
     - numpy
