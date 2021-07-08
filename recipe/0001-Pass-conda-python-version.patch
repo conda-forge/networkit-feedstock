@@ -27,7 +27,7 @@ index 906ef4419..ea3df1664 100644
  	if rpath:
  		comp_cmd.append("-DNETWORKIT_PYTHON_RPATH="+rpath)
 -	# Run cmake
-+	if pythowqn_exe:
++	if python_exe:
 +		comp_cmd.append("-DPython3_EXECUTABLE="+python_exe)
 +    # Run cmake
  	print("initializing NetworKit compilation with: '{0}'".format(" ".join(comp_cmd)), flush=True)
