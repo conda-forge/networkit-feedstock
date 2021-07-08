@@ -15,9 +15,10 @@ source:
   
 build:
   skip: True  # [py27 or py33  or python_impl == 'pypy']
+  skip: True  # [py<38 and win]
   number: 0
   script:
-    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'  # [not win]
+    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'
     - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--external-tlx={{ BUILD_PREFIX }}\Library" --ignore-installed -vv .'  # [win]
 
 requirements:
