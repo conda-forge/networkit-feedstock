@@ -10,6 +10,8 @@ package:
 source:
   - url: 'https://github.com/networkit/networkit/archive/{{ version }}.tar.gz'
     {{ hash_type }}: {{ hash_value }}
+    patches:
+      - 0001-Pass-conda-python-version.patch
   
 build:
   skip: True  # [py27 or py33  or python_impl == 'pypy']

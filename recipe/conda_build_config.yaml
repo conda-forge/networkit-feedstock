@@ -1,6 +1,4 @@
 cxx_compiler:                 # [win]
   - vs2019                    # [win]
-c_compiler_version:           # [win]
-  - 19                        # [win]
-cxx_compiler_version:         # [win]
-  - 19                        # [win]
+c_compiler:                   # [win]
+  - vs2019                    # [win]
