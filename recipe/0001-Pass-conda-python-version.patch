@@ -1,15 +1,15 @@
-From d1c098bfd7188b3d47b1ce13f2163251daef1cdb Mon Sep 17 00:00:00 2001
+From 1cfc3040a5a40ae9bcd99c36b35985de29147a2a Mon Sep 17 00:00:00 2001
 From: Fabian Brandt-Tumescheit
  <fabian.brandt-tumescheit@informatik.hu-berlin.de>
-Date: Thu, 8 Jul 2021 12:39:11 +0200
-Subject: [PATCH] Pass conda-python version
+Date: Fri, 16 Jul 2021 11:21:12 +0200
+Subject: [PATCH] Pass conda python version
 
 ---
- setup.py | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ setup.py | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/setup.py b/setup.py
-index 906ef4419..74316d881 100644
+index 906ef4419..47b298038 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -38,6 +38,9 @@ os_soabi = sysconfig.get_config_var('SOABI')
@@ -17,24 +17,22 @@ index 906ef4419..74316d881 100644
  	os_soabi =  sysconfig.get_config_var('EXT_SUFFIX').split(".")[1] # get_config_var('SOABI') is None on win32-systems
  
 +if "PYTHON" in os.environ:
-+    python_exe = os.environ["PYTHON"]
++	python_exe = os.environ["PYTHON"]
 +
  import os
  import subprocess #calling cmake, make and cython
  
-@@ -155,7 +158,11 @@ def buildNetworKit(install_prefix, externalCore=False, externalTlx=None, withTes
+@@ -155,6 +158,10 @@ def buildNetworKit(install_prefix, externalCore=False, externalTlx=None, withTes
  	comp_cmd.append(os.getcwd()) #call CMakeLists.txt from networkit root
  	if rpath:
  		comp_cmd.append("-DNETWORKIT_PYTHON_RPATH="+rpath)
--	# Run cmake
 +	if python_exe:
 +		comp_cmd.append("-DPython3_EXECUTABLE="+python_exe)
 +	if sys.platform == "darwin" and "CONDA_BUILD_SYSROOT" in os.environ:
 +		comp_cmd.append("-DCMAKE_OSX_SYSROOT="+os.environ["CONDA_BUILD_SYSROOT"])
-+    # Run cmake
+ 	# Run cmake
  	print("initializing NetworKit compilation with: '{0}'".format(" ".join(comp_cmd)), flush=True)
  	if not subprocess.call(comp_cmd, cwd=buildDirectory) == 0:
- 		print("cmake returned an error, exiting setup.py")
 -- 
 2.30.0
 
