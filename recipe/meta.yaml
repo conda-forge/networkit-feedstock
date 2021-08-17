@@ -18,7 +18,7 @@ source:
 build:
   skip: True  # [py27 or py33  or python_impl == 'pypy']
   skip: True  # [py<38 and win]
-  number: 0
+  number: 1
   script:
     - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'  # [not win]
     - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--external-tlx={{ BUILD_PREFIX }}\Library" --ignore-installed -vv .'  # [win]
@@ -28,11 +28,14 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake >=3.5
-    - cython >=0.29
-    - ninja >=1.9.0
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - cython >=0.29                       # [build_platform != target_platform]
     - libtlx
-    - libnetworkit ={{ version }}  # [not win]
-    - python
+    - libnetworkit ={{ version }}         # [not win]
+    - ninja >=1.9.0
+    - numpy                               # [build_platform != target_platform]
+    - pybind11                            # [build_platform != target_platform]
+    - python                              # [build_platform != target_platform]
   
   host:
     - numpy
@@ -51,6 +54,8 @@ requirements:
     - libnetworkit ={{ version }}  # [not win]
 
 test:
+  requires:
+    - conda-build
   imports:
     - networkit
 
