@@ -14,6 +14,7 @@ source:
       - 0001-Pass-conda-python-version.patch
       - 0001-Removed-link-to-python-libraries-for-cython-extension.patch
       - 0001-Added-python-libraries-for-Windows.patch
+      - 0001-Import-submodules-from-scipy.sparse-explicitly.patch
   
 build:
   skip: True  # [py27 or py33  or python_impl == 'pypy']
@@ -56,8 +57,18 @@ requirements:
 test:
   requires:
     - conda-build
-  imports:
-    - networkit
+    - jupyter
+    - tabulate
+  source_files:
+    - networkit/test
+    - notebooks
+    - input
+  commands:
+    # Remove tests, which involve writing graphs (missing permissions)
+    - rm networkit/test/test_graphio.py && rm networkit/test/extension/test.py
+    - rm notebooks/User-Guide.ipynb
+    - python -m unittest discover -v networkit/test/
+    - python notebooks/test_notebooks.py "notebooks"
 
 about:
   home: https://github.com/networkit/networkit
