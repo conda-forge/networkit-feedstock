@@ -1,26 +1,26 @@
 {% set name = "networkit" %}
-{% set version = "9.0" %}
+{% set version = "9.1" %}
 
 package:
-  name: '{{ name|lower }}'
-  version: '{{ version }}'
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  - url: 'https://github.com/networkit/networkit/archive/{{ version }}.tar.gz'
-    sha256: c574473bc7d86934f0f4b3049c0eeb9c4444cfa873e5fecda194ee5b1930f82c
+  - url: https://github.com/networkit/networkit/archive/{{ version }}.tar.gz
+    sha256: 8abf51684d1f0469fa985e67ecd46fbe92c94b57d6c52f1b06fd216e86825d25
     patches:
       - 0001-Pass-conda-python-version.patch
       - 0001-Removed-link-to-python-libraries-for-cython-extension.patch
       - 0001-Added-python-libraries-for-Windows.patch
       - 0001-Import-submodules-from-scipy.sparse-explicitly.patch
-  
+
 build:
-  skip: True  # [py27 or py33  or python_impl == 'pypy']
-  skip: True  # [py<38 and win]
-  number: 2
+  skip: true  # [py27 or py33  or python_impl == 'pypy']
+  skip: true  # [py<38 and win]
+  number: 0
   script:
-    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'  # [not win]
-    - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--external-tlx={{ BUILD_PREFIX }}\Library" --ignore-installed -vv .'  # [win]
+    - {{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .    # [not win]
+    - {{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--external-tlx={{ BUILD_PREFIX }}\Library" --ignore-installed -vv .    # [win]
 
 requirements:
   build:
@@ -35,7 +35,6 @@ requirements:
     - numpy                               # [build_platform != target_platform]
     - pybind11                            # [build_platform != target_platform]
     - python                              # [build_platform != target_platform]
-  
   host:
     - numpy
     - pip
@@ -73,9 +72,9 @@ about:
   license: MIT
   license_family: MIT
   license_file: License.txt
-  summary: 'NetworKit is a growing open-source toolkit for large-scale network analysis.'
+  summary: NetworKit is a growing open-source toolkit for large-scale network analysis.
   description: |
-           NetworKit is a growing open-source toolkit for large-scale network analysis. Its aim is to provide tools for the analysis of large networks in the size range from thousands to billions of edges. For this purpose, it implements efficient graph algorithms, many of them parallel to utilize multicore architectures. These are meant to compute standard measures of network analysis, such as degree sequences, clustering coefficients, and centrality measures. In this respect, NetworKit is comparable to packages such as NetworkX, albeit with a focus on parallelism and scalability. NetworKit is also a testbed for algorithm engineering and contains novel algorithms from recently published research (see list of Publications).
+    NetworKit is a growing open-source toolkit for large-scale network analysis. Its aim is to provide tools for the analysis of large networks in the size range from thousands to billions of edges. For this purpose, it implements efficient graph algorithms, many of them parallel to utilize multicore architectures. These are meant to compute standard measures of network analysis, such as degree sequences, clustering coefficients, and centrality measures. In this respect, NetworKit is comparable to packages such as NetworkX, albeit with a focus on parallelism and scalability. NetworKit is also a testbed for algorithm engineering and contains novel algorithms from recently published research (see list of Publications).
   doc_url: https://networkit.github.io/
   dev_url: https://github.com/networkit/networkit
 
