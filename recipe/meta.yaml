@@ -13,7 +13,7 @@ source:
 
 build:
   skip: True  # [py==27 or py==33  or python_impl == 'pypy']
-  skip: True  # [py<38 and win]
+  skip: True  # [py<38]
   number: 0
   script:
     - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'  # [not win]
@@ -31,7 +31,7 @@ requirements:
     - ninja >=1.9.0
     - numpy                               # [build_platform != target_platform]
     - pybind11                            # [build_platform != target_platform]
-    - python >=3.8                        # [build_platform != target_platform]
+    - python                              # [build_platform != target_platform]
   
   host:
     - numpy
