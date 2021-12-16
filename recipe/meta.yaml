@@ -1,5 +1,5 @@
 {% set name = "networkit" %}
-{% set version = "9.0" %}
+{% set version = "9.1" %}
 
 package:
   name: '{{ name|lower }}'
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: 'https://github.com/networkit/networkit/archive/{{ version }}.tar.gz'
-    sha256: c574473bc7d86934f0f4b3049c0eeb9c4444cfa873e5fecda194ee5b1930f82c
+    sha256: 8abf51684d1f0469fa985e67ecd46fbe92c94b57d6c52f1b06fd216e86825d25
     patches:
       - 0001-Pass-conda-python-version.patch
       - 0001-Removed-link-to-python-libraries-for-cython-extension.patch
@@ -17,7 +17,7 @@ source:
 build:
   skip: True  # [py27 or py33  or python_impl == 'pypy']
   skip: True  # [py<38 and win]
-  number: 2
+  number: 0
   script:
     - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .'  # [not win]
     - '{{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--external-tlx={{ BUILD_PREFIX }}\Library" --ignore-installed -vv .'  # [win]
@@ -34,7 +34,7 @@ requirements:
     - ninja >=1.9.0
     - numpy                               # [build_platform != target_platform]
     - pybind11                            # [build_platform != target_platform]
-    - python                              # [build_platform != target_platform]
+    - python >=3.8                        # [build_platform != target_platform]
   
   host:
     - numpy
