@@ -10,10 +10,7 @@ source:
     sha256: 8abf51684d1f0469fa985e67ecd46fbe92c94b57d6c52f1b06fd216e86825d25
     patches:
       - 0001-Pass-conda-python-version.patch
-      - 0001-Removed-link-to-python-libraries-for-cython-extension.patch
-      - 0001-Added-python-libraries-for-Windows.patch
-      - 0001-Import-submodules-from-scipy.sparse-explicitly.patch
-  
+
 build:
   skip: True  # [py==27 or py==33  or python_impl == 'pypy']
   skip: True  # [py<38 and win]
