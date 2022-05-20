@@ -54,7 +54,10 @@ requirements:
 test:
   requires:
     - conda-build
+    - ipycytoscape
     - jupyter
+    - plotly
+    - seaborn
     - tabulate
   source_files:
     - networkit/test
