@@ -1,11 +1,11 @@
-About networkit
-===============
+About networkit-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/networkit-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/networkit/networkit
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/networkit-feedstock/blob/main/LICENSE.txt)
 
 Summary: NetworKit is a growing open-source toolkit for large-scale network analysis.
 
