@@ -1,5 +1,5 @@
 {% set name = "networkit" %}
-{% set version = "10.1" %}
+{% set version = "11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/networkit/networkit/archive/{{ version }}.tar.gz
-    sha256: 35d11422b731f3e3f06ec05615576366be96ce26dd23aa16c8023b97f2fe9039
+    sha256: 3cba54b384db4adfd88c984805647a3b74ed52168b6178cba6dd58f1cbd73120
     patches:
       - 0001-Pass-conda-python-version.patch
   - git_url: https://github.com/networkit/ttmath
