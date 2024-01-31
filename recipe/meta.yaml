@@ -37,10 +37,10 @@ requirements:
     - python                              # [build_platform != target_platform]
   host:
     - numpy
-    - pip <23.1
+    - pip <23.0
     - python
     - scipy
-    - setuptools <68.0
+    - setuptools <59.0
     - setuptools-cythonize
     - wheel >=0.28
     - libnetworkit ={{ version }}  # [not win]
