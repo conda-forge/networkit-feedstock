@@ -37,7 +37,7 @@ requirements:
     - python                              # [build_platform != target_platform]
   host:
     - numpy
-    - pip
+    - pip <23.1
     - python
     - scipy
     - setuptools
