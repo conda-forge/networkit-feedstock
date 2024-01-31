@@ -40,7 +40,7 @@ requirements:
     - pip <23.1
     - python
     - scipy
-    - setuptools
+    - setuptools <68.0
     - setuptools-cythonize
     - wheel >=0.28
     - libnetworkit ={{ version }}  # [not win]
