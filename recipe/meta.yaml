@@ -1,5 +1,5 @@
 {% set name = "networkit" %}
-{% set version = "10.1" %}
+{% set version = "11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,25 @@ package:
 
 source:
   - url: https://github.com/networkit/networkit/archive/{{ version }}.tar.gz
-    sha256: 35d11422b731f3e3f06ec05615576366be96ce26dd23aa16c8023b97f2fe9039
+    sha256: 3cba54b384db4adfd88c984805647a3b74ed52168b6178cba6dd58f1cbd73120
     patches:
       - 0001-Pass-conda-python-version.patch
   - git_url: https://github.com/networkit/ttmath
     git_depth: 1
     folder: extlibs/ttmath
+  - git_url: https://github.com/tlx/tlx
+    git_depth: 1
+    folder: extlibs/tlx
+  - git_url: https://github.com/google/googletest
+    git_depth: 1
+    folder: extlibs/googletest
 
 build:
   skip: true  # [py==27 or py==33  or python_impl == 'pypy']
   skip: true  # [py<38]
   number: 0
   script:
-    - {{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--networkit-external-core" --install-option="--external-tlx={{ BUILD_PREFIX }}" --ignore-installed -vv .    # [not win]
-    - {{ PYTHON }} -m pip install --install-option="build_ext" --install-option="--external-tlx={{ BUILD_PREFIX }}\Library" --ignore-installed -vv .    # [win]
+    - {{ PYTHON }} -m pip install --ignore-installed -vv .
 
 requirements:
   build:
@@ -29,8 +34,6 @@ requirements:
     - cmake >=3.5
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - cython >=0.29                       # [build_platform != target_platform]
-    - libtlx
-    - libnetworkit ={{ version }}         # [not win]
     - ninja >=1.9.0
     - numpy                               # [build_platform != target_platform]
     - pybind11                            # [build_platform != target_platform]
@@ -43,13 +46,11 @@ requirements:
     - setuptools
     - setuptools-cythonize
     - wheel >=0.28
-    - libnetworkit ={{ version }}  # [not win]
 
   run:
     - numpy
     - python
     - scipy
-    - libnetworkit ={{ version }}  # [not win]
 
 test:
   requires:
