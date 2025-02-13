@@ -1,5 +1,5 @@
 {% set name = "networkit" %}
-{% set version = "11.0" %}
+{% set version = "11.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/networkit/networkit/archive/{{ version }}.tar.gz
-    sha256: 3cba54b384db4adfd88c984805647a3b74ed52168b6178cba6dd58f1cbd73120
+    sha256: fbdc86b6ac6486ce4e0898f386c5371bd07b9a420293306f2e632549378f4b86
     patches:
       - 0001-Pass-conda-python-version.patch
   - git_url: https://github.com/networkit/ttmath
@@ -21,9 +21,8 @@ source:
     folder: extlibs/googletest
 
 build:
-  skip: true  # [py==27 or py==33  or python_impl == 'pypy']
-  skip: true  # [py<38]
-  number: 2
+  skip: true  # [py==27 or py==33  or python_impl == 'pypy' or py<310]
+  number: 0
   script:
     - {{ PYTHON }} -m pip install --ignore-installed -vv .
 
@@ -36,11 +35,11 @@ requirements:
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - cython >=0.29                       # [build_platform != target_platform]
     - ninja >=1.9.0
-    - numpy <2                            # [build_platform != target_platform]
+    - numpy                               # [build_platform != target_platform]
     - pybind11                            # [build_platform != target_platform]
     - python                              # [build_platform != target_platform]
   host:
-    - numpy <2
+    - numpy
     - pip
     - python
     - scipy
@@ -49,7 +48,7 @@ requirements:
     - wheel >=0.28
 
   run:
-    - numpy <2
+    - numpy
     - python
     - scipy
 
