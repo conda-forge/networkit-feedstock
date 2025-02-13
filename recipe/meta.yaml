@@ -21,8 +21,7 @@ source:
     folder: extlibs/googletest
 
 build:
-  skip: true  # [py==27 or py==33  or python_impl == 'pypy']
-  skip: true  # [py<310]
+  skip: true  # [py==27 or py==33  or python_impl == 'pypy' or py<310]
   number: 0
   script:
     - {{ PYTHON }} -m pip install --ignore-installed -vv .
