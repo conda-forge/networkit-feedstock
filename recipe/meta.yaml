@@ -61,6 +61,7 @@ test:
     - plotly
     - seaborn
     - tabulate
+    - anywidget
   source_files:
     - networkit/test
     - notebooks
