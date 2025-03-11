@@ -1,5 +1,5 @@
 {% set name = "networkit" %}
-{% set version = "11.0.1" %}
+{% set version = "11.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/networkit/networkit/archive/{{ version }}.tar.gz
-    sha256: fbdc86b6ac6486ce4e0898f386c5371bd07b9a420293306f2e632549378f4b86
+    sha256: c8db0430f6d7503eaf1e59fbf181374dc9eaa70f572c56d2efa75dd19a3548a9
     patches:
       - 0001-Pass-conda-python-version.patch
   - git_url: https://github.com/networkit/ttmath
@@ -31,7 +31,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - cmake >=3.5
+    - cmake >=3.12
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - cython >=0.29                       # [build_platform != target_platform]
     - ninja >=1.9.0
@@ -57,6 +57,7 @@ test:
     - conda-build
     - ipycytoscape
     - jupyter
+    - networkx
     - plotly
     - seaborn
     - tabulate
