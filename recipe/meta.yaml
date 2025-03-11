@@ -57,6 +57,7 @@ test:
     - conda-build
     - ipycytoscape
     - jupyter
+    - networkx
     - plotly
     - seaborn
     - tabulate
