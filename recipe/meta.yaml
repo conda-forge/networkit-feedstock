@@ -42,7 +42,7 @@ requirements:
     - numpy
     - pip
     - python
-    - scipy
+    - scipy <=1.6.3
     - setuptools
     - setuptools-cythonize
     - wheel >=0.28
