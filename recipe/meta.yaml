@@ -2,11 +2,11 @@
 {% set version = "11.3" %}
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
 
 source:
-  - url: https://github.com/networkit/networkit/archive/{{ version }}.tar.gz
+  - url: https://github.com/networkit/networkit/archive/"{{ version }}".tar.gz
     sha256: 5aa5813110438270e9bb83c73f597943c4c5bedd5a9634fdaf5f2052a0053ba4
     patches:
       - 0001-Pass-conda-python-version.patch
