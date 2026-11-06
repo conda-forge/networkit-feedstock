@@ -27,6 +27,7 @@ build:
   skip: true  # [py==27 or py==33  or python_impl == 'pypy' or py<310]
   number: 0
   script:
+    - export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"  # [osx]
     - {{ PYTHON }} -m pip install --ignore-installed -vv .
 
 requirements:
